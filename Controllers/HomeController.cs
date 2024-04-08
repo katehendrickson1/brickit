@@ -20,7 +20,6 @@ namespace brickit.Controllers
 
         public IActionResult Privacy()
         {
-            var something = 2;
             return View();
         }
 
