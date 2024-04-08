@@ -1,7 +1,17 @@
+using brickit.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<LegoDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LegoDbConnection"));
+});
+
+builder.Services.AddScoped<ILegoRepository, EFLegoRepository>();
 
 var app = builder.Build();
 

@@ -7,10 +7,12 @@ namespace brickit.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly EFLegoRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, EFLegoRepository temp)
         {
             _logger = logger;
+            _repo = temp;
         }
 
         public IActionResult Index()
