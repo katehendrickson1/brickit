@@ -2,7 +2,7 @@
 {
     public interface ILegoRepository
     {
-        IQueryable<Customer> Customer { get; }
+        IQueryable<Customer> Customers { get; }
         IQueryable<Order> Orders { get; }
         IQueryable<Product> Products { get; }
         IQueryable<lineItem> LineItems { get; }
@@ -10,6 +10,9 @@
 
 
         void Add<T>(T entity) where T : class;
+
+        void Remove<T>(T entity) where T : class;
+        void Update<T>(T entity) where T : class;
         void SaveChanges();
 
     }
