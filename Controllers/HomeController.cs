@@ -1,6 +1,8 @@
+using AspNetCore;
 using brickit.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML;
 using System.Diagnostics;
 
 namespace brickit.Controllers
@@ -95,5 +97,27 @@ namespace brickit.Controllers
 
             return RedirectToAction("ProductList"); // Assuming you have a ProductList action
         }
+
+        public IActionResult Orders()
+        {
+            var orders = _repo.Orders
+                .Join(_repo.LineItems, o => o.transaction_ID, li => li.transaction_ID, (o, li) => new { Order = o, LineItem = li })
+                .Join(_repo.Products, j => j.LineItem.product_ID, p => p.product_ID, (j, p) => new { j.Order, j.LineItem, Product = p })
+                .Join(_repo.Customers, j => j.Order.customer_ID, c => c.customer_ID, (j, c) => new { j.Order, j.LineItem, j.Product, Customer = c })
+                .Select(result => new OrderViewModel
+                {
+                    TransactionID = result.Order.transaction_ID,
+                    Date = result.Order.date,
+                    CustomerName = result.Customer.first_name + " " + result.Customer.last_name,
+                    ProductName = result.Product.name,
+                    Quantity = result.LineItem.qty,
+                    Price = result.Product.price,
+                    // Add other properties you want to display
+                })
+                .ToList();
+
+            return View(orders);
+        }
+
     }
 }
