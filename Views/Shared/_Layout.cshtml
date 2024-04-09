@@ -9,38 +9,51 @@
     <link rel="stylesheet" href="~/brickit.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">brickit</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <header class="header">
+        <div class="header-image">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/21cfa5120db7a4366def7b1855ef1eb4b263aaabd4313ff49f2a55b64d8d200a?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="Header Image" class="header-bg">
+        </div>
+        <div class="header-search">
+            <form asp-action="Search" method="get">
+                <input type="text" name="query" placeholder="Search lego sets" class="search-box">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        <div class="header-links">
+            <a asp-controller="Home" asp-action="Privacy" class="privacy-link">PRIVACY</a>
+            <a asp-controller="Home" asp-action="AboutUs" class="about-link">ABOUT US</a>
+        </div>
+        <div class="dropdown">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f8ab62d924c6094f9165b021364093b1b28ccf35077e6e53b4c0baa0c555efd8?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="Logo" class="user dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" asp-controller="Home" asp-action="Login">Login</a>
+                <a class="dropdown-item" asp-controller="Home" asp-action="Index">Logout</a>
+                <a class="dropdown-item" asp-controller="Home" asp-action="SignUp">Sign Up</a>
             </div>
-        </nav>
+        </div>
     </header>
+
+
+
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - brickit - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -20,3 +20,59 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.header-search {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    left: 10px; /* Adjust left position as needed */
+    z-index: 2; /* Ensure the search box appears in front */
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the image cover the entire header */
+    z-index: 1; /* Ensure the image is behind the search box */
+}
+
+.header-bg {
+    display: block;
+    width: 30%;
+    height: auto;
+}
+
+.header {
+    background-color: #da291c;
+    color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+
+
+.header-links {
+    display: flex; /* Make links display in a row */
+    justify-content: flex-end; /* Align links to the right */
+    flex: 1; /* Allow header links to take up remaining space */
+}
+
+
+.privacy-link,
+.about-link {
+    text-align: center;
+    font-family: Lexend Tera, sans-serif;
+    text-decoration: none; /* Updated */
+    color: #fff; /* Set text color to white */
+    margin-left: 30px;
+}
+
+.user {
+    width: 90px;
+    padding: 20px;
+}
+
