@@ -1,4 +1,4 @@
-using AspNetCore;
+//using AspNetCore;
 using brickit.Models;
 using brickit.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +50,7 @@ namespace brickit.Controllers
             return View();
         }
 
-        public IActionResult ProductList()
+        public IActionResult AdminProductList()
         {
             var products = _repo.Products.ToList();
 
@@ -100,55 +100,66 @@ namespace brickit.Controllers
         }
 
 
+        //[HttpGet]
+        //public IActionResult SignUp()
+        //{
+        //    return View("SignUp", new User());
+        //}
+
+        //[HttpPost]
+        //public IActionResult SignUp(User response)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var res = response;
+        //        //_repo.users.Add(res);
+        //        _repo.SaveChanges();
+
+        //        return View("Login", response); // add record to database
+        //    }
+        //    else
+        //    {
+        //        return View(response);
+        //    }
+
+        //}
+
+        //public IActionResult Orders()
+        //{
+        //    var orders = _repo.Orders
+        //        .Join(_repo.LineItems, o => o.transaction_ID, li => li.transaction_ID, (o, li) => new { Order = o, LineItem = li })
+        //        .Join(_repo.Products, j => j.LineItem.product_ID, p => p.product_ID, (j, p) => new { j.Order, j.LineItem, Product = p })
+        //        .Join(_repo.Customers, j => j.Order.customer_ID, c => c.customer_ID, (j, c) => new { j.Order, j.LineItem, j.Product, Customer = c })
+        //        .Select(result => new OrderViewModel
+        //        {
+        //            TransactionID = result.Order.transaction_ID,
+        //            Date = (DateTime)result.Order.date,
+        //            CustomerName = result.Customer.first_name + " " + result.Customer.last_name,
+        //            ProductName = result.Product.name,
+        //            Quantity = (int)result.LineItem.qty,
+        //            Price = (decimal)result.Product.price,
+        //            // Add other properties you want to display
+        //        })
+        //        .ToList();
+
+        //    return View(orders);
+        //}
+
         [HttpGet]
-        public IActionResult SignUp()
+        public IActionResult CustProductList()
         {
-            return View("SignUp", new User());
+            var products = _repo.Products.ToList();
+
+            return View(products);
         }
 
-        [HttpPost]
-        public IActionResult SignUp(User response)
+        [HttpGet]
+        public IActionResult SeeProd(int id)
         {
-            if (ModelState.IsValid)
-            {
-                var res = response;
-                //_repo.users.Add(res);
-                _repo.SaveChanges();
-
-                return View("Login", response); // add record to database
-            }
-            else
-            {
-                return View(response);
-            }
-
+            var recordToSee = _repo.Products
+                .Single(x => x.product_ID == id);
+            return View("IndividualProduct", recordToSee);
         }
-
-        public IActionResult Orders()
-        {
-            var orders = _repo.Orders
-                .Join(_repo.LineItems, o => o.transaction_ID, li => li.transaction_ID, (o, li) => new { Order = o, LineItem = li })
-                .Join(_repo.Products, j => j.LineItem.product_ID, p => p.product_ID, (j, p) => new { j.Order, j.LineItem, Product = p })
-                .Join(_repo.Customers, j => j.Order.customer_ID, c => c.customer_ID, (j, c) => new { j.Order, j.LineItem, j.Product, Customer = c })
-                .Select(result => new OrderViewModel
-                {
-                    TransactionID = result.Order.transaction_ID,
-                    Date = (DateTime)result.Order.date,
-                    CustomerName = result.Customer.first_name + " " + result.Customer.last_name,
-                    ProductName = result.Product.name,
-                    Quantity = (int)result.LineItem.qty,
-                    Price = (decimal)result.Product.price,
-                    // Add other properties you want to display
-                })
-                .ToList();
-
-            return View(orders);
-        }
-
-
-
-
-
 
 
 
