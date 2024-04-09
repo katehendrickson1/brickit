@@ -26,6 +26,11 @@ namespace brickit.Controllers
         return View(orders);
         }
 
+        public IActionResult testView()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

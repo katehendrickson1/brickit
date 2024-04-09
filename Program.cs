@@ -2,12 +2,15 @@ using brickit.Models;
 using Microsoft.EntityFrameworkCore;
 using brickit.Data;
 using Microsoft.AspNetCore.Identity;
+using brickit.Areas.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages(); // Add this line
 
+   
 builder.Services.AddDbContext<LegoDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("BrickItConnection"));
@@ -35,12 +38,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages();
 
 app.MapRazorPages();
 
