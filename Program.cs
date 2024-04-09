@@ -1,5 +1,7 @@
 using brickit.Models;
 using Microsoft.EntityFrameworkCore;
+using brickit.Data;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,8 @@ builder.Services.AddDbContext<LegoDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("BrickItConnection"));
 });
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<brickitContext>();
 
 builder.Services.AddScoped<ILegoRepository, EFLegoRepository>();
 
