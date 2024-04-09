@@ -1,5 +1,6 @@
 using AspNetCore;
 using brickit.Models;
+using brickit.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
@@ -20,7 +21,7 @@ namespace brickit.Controllers
         {
         var limit = 30;
 
-        ViewBag.Customers = _repo.Customer.ToList().Take(limit);
+        ViewBag.Customers = _repo.Customers.ToList().Take(limit);
         var orders = _repo.Orders.ToList().Take(limit);
         return View(orders);
         }
@@ -110,7 +111,8 @@ namespace brickit.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repo.User.Add(response);
+                var res = response;
+                //_repo.users.Add(res);
                 _repo.SaveChanges();
 
                 return View("Login", response); // add record to database
@@ -131,11 +133,11 @@ namespace brickit.Controllers
                 .Select(result => new OrderViewModel
                 {
                     TransactionID = result.Order.transaction_ID,
-                    Date = result.Order.date,
+                    Date = (DateTime)result.Order.date,
                     CustomerName = result.Customer.first_name + " " + result.Customer.last_name,
                     ProductName = result.Product.name,
-                    Quantity = result.LineItem.qty,
-                    Price = result.Product.price,
+                    Quantity = (int)result.LineItem.qty,
+                    Price = (decimal)result.Product.price,
                     // Add other properties you want to display
                 })
                 .ToList();
