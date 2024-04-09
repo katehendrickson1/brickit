@@ -10,22 +10,6 @@
 
 
     <div>
-        @if (ViewBag.Customers != null)
-        {
-            foreach (var customer in ViewBag.Customers)
-            {
-                <p>@customer.first_name</p>
-            }
-        }
-
-
-
-        @foreach (var order in Model)
-        {
-
-            <p>@order.day_of_week</p>
-            
-        }
         
     </div>
 
