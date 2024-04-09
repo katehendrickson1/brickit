@@ -32,6 +32,7 @@ namespace brickit.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult AddProduct()
         {
             return View();
@@ -43,6 +44,13 @@ namespace brickit.Controllers
             _repo.Add(product);
             _repo.SaveChanges();
             return View();
+        }
+
+        public IActionResult ProductList()
+        {
+            var products = _repo.Products.ToList();
+
+            return View(products);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
