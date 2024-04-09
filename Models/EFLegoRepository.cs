@@ -10,7 +10,7 @@ namespace brickit.Models
         }
 
 
-        public IQueryable<Customer> Customer => _context.customer;
+        public IQueryable<Customer> Customers => _context.customer;
         public IQueryable<Order> Orders => _context.orders;
         public IQueryable<Product> Products => _context.products;
         public IQueryable<lineItem> LineItems => _context.lineItems;
