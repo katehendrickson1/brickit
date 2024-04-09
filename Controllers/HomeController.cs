@@ -6,18 +6,20 @@ namespace brickit.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly EFLegoRepository _repo;
+        private readonly ILegoRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger, EFLegoRepository temp)
+        public HomeController( ILegoRepository temp)
         {
-            _logger = logger;
             _repo = temp;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var limit = 30;
+
+            ViewBag.Customers = _repo.Customer.ToList().Take(limit);
+            var orders = _repo.Orders.ToList().Take(limit);
+            return View(orders);
         }
 
         public IActionResult Privacy()

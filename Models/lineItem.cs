@@ -1,10 +1,13 @@
-﻿namespace brickit.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace brickit.Models
 {
     public class lineItem
     {
-        public int transactionID { get; set; }
-        public int productID { get; set; }
-        public int quantity { get; set; }
-        public int rating { get; set; }
+        [Key]
+        public int transaction_ID { get; set; }
+        public int product_ID { get; set; }
+        public int? qty { get; set; }
+        public int? rating { get; set; }
     }
 }

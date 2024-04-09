@@ -1,14 +1,19 @@
-﻿namespace brickit.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
+
+namespace brickit.Models
 {
     public class Customer
     {
-        public int customerID {  get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string birthDate { get; set; }
-        public string country { get; set; }
-        public string gender { get; set; }
-        public float age { get; set; }
+        [Key]
+        public int customer_ID {  get; set; }
+        public string? first_name { get; set; }
+        public string? last_name { get; set; }
+        public DateTime? birth_date { get; set; }
+        public string? country_of_residence { get; set; }
+        public string? gender { get; set; }
+        public decimal? age { get; set; }
 
     }
 }

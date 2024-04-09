@@ -2,10 +2,11 @@
 {
     public interface ILegoRepository
     {
-        List<Customer> Customers { get; }
-        List<Order> Orders { get; }
-        List<Product> Products { get; }
-        List<lineItem> LineItems { get; }
+        IQueryable<Customer> Customer { get; }
+        IQueryable<Order> Orders { get; }
+        IQueryable<Product> Products { get; }
+        IQueryable<lineItem> LineItems { get; }
+        IQueryable<User> users { get; }
 
     }
 }

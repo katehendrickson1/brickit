@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<LegoDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LegoDbConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BrickItConnection"));
 });
 
 builder.Services.AddScoped<ILegoRepository, EFLegoRepository>();
