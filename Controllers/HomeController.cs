@@ -15,16 +15,42 @@ namespace brickit.Controllers
 
         public IActionResult Index()
         {
-            var limit = 30;
+        var limit = 30;
 
-            ViewBag.Customers = _repo.Customer.ToList().Take(limit);
-            var orders = _repo.Orders.ToList().Take(limit);
-            return View(orders);
+        ViewBag.Customers = _repo.Customer.ToList().Take(limit);
+        var orders = _repo.Orders.ToList().Take(limit);
+        return View(orders);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Welcome()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddProduct(Product product)
+        {
+            _repo.Add(product);
+            _repo.SaveChanges();
+            return View();
+        }
+
+        public IActionResult ProductList()
+        {
+            var products = _repo.Products.ToList();
+
+            return View(products);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

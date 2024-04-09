@@ -1,0 +1,233 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 1024px;
+    padding-top: 15px;
+    color: #fff;
+    font-weight: 700;
+    overflow: hidden;
+  }
+
+
+  .header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    padding: 13px 54px 3px;
+    font-size: 20px;
+    background-color: #da291c;
+    box-shadow: 0px 9px 26.6px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  @@media (max-width: 991px) {
+    .header {
+      flex-wrap: wrap;
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  }
+
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    align-self: stretch;
+    font-weight: 300;
+  }
+
+  @@media (max-width: 991px) {
+    .search-container {
+      max-width: 100%;
+    }
+  }
+
+  .search-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 93px;
+    padding: 24px 22px 6px;
+    gap: 20px;
+    align-items: flex-start;
+    border: 5px solid #fff;
+    overflow: hidden;
+    fill: #0055bf;
+    stroke: #fff;
+    stroke-width: 5px;
+  }
+
+  @@media (max-width: 991px) {
+    .search-box {
+      flex-wrap: wrap;
+      max-width: 100%;
+      padding-right: 20px;
+    }
+  }
+
+  .search-text {
+    position: relative;
+    margin: auto 0;
+    font-family: Lexend Tera, sans-serif;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+
+  .search-icon {
+    width: 42px;
+    aspect-ratio: 0.67;
+    object-fit: contain;
+    object-position: center;
+    align-self: start;
+  }
+
+  .nav-link {
+    margin: auto 0;
+    text-align: center;
+    font-family: Lexend Tera, sans-serif;
+    align-self: stretch;
+    flex-grow: 1;
+    flex-basis: auto;
+  }
+
+  .cart-icon {
+    width: 134px;
+    max-width: 100%;
+    margin-top: 5px;
+    aspect-ratio: 0.99;
+    object-fit: contain;
+    object-position: center;
+    align-self: start;
+  }
+
+  .main-section {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    max-width: 1331px;
+    min-height: 810px;
+    margin-top: 42px;
+    padding: 0 60px;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 10px solid #008e3c;
+    fill: #fff;
+    stroke: #008e3c;
+    stroke-width: 10px;
+    overflow: hidden;
+    align-self: center;
+  }
+
+  @@media (max-width: 991px) {
+    .main-section {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  }
+
+  .content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 557px;
+    max-width: 100%;
+  }
+
+  .main-image {
+    width: 100%;
+    aspect-ratio: 0.97;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @@media (max-width: 991px) {
+    .main-image {
+      max-width: 100%;
+    }
+  }
+
+  .login-link {
+    margin: 25px 0 0 64px;
+    font-family: Lexend Tera, sans-serif;
+    align-self: start;
+  }
+
+  @@media (max-width: 991px) {
+    .login-link {
+      margin-left: 10px;
+    }
+  }
+
+  .cta-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 93px;
+    margin-top: 101px;
+    padding: 57px 60px 19px;
+    font-family: Lexend Tera, sans-serif;
+    fill: #0055bf;
+    overflow: hidden;
+    align-self: center;
+  }
+
+  @@media (max-width: 991px) {
+    .cta-button {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 24px 0 20px;
+    }
+  }
+
+  .cta-text {
+    position: relative;
+  }
+</style>
+
+<div class="container">
+  
+  <header class="header">
+    
+    <div class="search-container">
+      <div class="search-box">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c7cd449c1077e32b2f44c37f805ef9739dd93306824ed2d598bbf578b37812a0?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="Search Icon" class="search-icon" />
+        <div class="search-text">SEARCH FOR ITEMS</div>
+      </div>
+    </div>
+    
+    <nav>
+      <div class="nav-link">PRIVACY</div>
+      <div class="nav-link">ABOUT US</div>
+    </nav>
+    
+    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8a40054257e6bb88f310441e544327d336ba30f0e70043f306603ec1811f7c01?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="Cart Icon" class="cart-icon" />
+  </header>
+  
+  <main class="main-section">
+    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e661b4eead46e1ea5895af6c8726852ca3173df872ddc3c8c50874f9962c9ccd?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="Background" class="background-image" />
+    
+    <div class="content-wrapper">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ab7c55c32aa34740e25079de77660faf68ec76fc50134c11aa0e1095b78e5b95?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="Main Image" class="main-image" />
+      <div class="login-link">LOG IN</div>
+      
+      <div class="cta-button">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2766dce75d48e5988b662e1ba7a89b46ede0bf6851b9798d8dc8188785c677f4?apiKey=9a246791027840cdbefebef3c3499f5e&" alt="CTA Icon" class="background-image" />
+        <div class="cta-text">START SHOPPING NOW</div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -23,19 +23,41 @@ body {
 
 
 .header-search {
-    position: absolute;
-    top: 10px; /* Adjust top position as needed */
-    left: 10px; /* Adjust left position as needed */
-    z-index: 2; /* Ensure the search box appears in front */
+    /* Remove absolute positioning */
+    /* position: absolute; */
+    /* Adjust top and left positions if needed */
+    /* top: 10px; */
+    /* left: 10px; */
+    /* Remove z-index */
+    /* z-index: 2; */
+    /* Ensure the search box appears in front */
 }
 
 .header-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Make the image cover the entire header */
-    z-index: 1; /* Ensure the image is behind the search box */
+    /* Adjust positioning if needed */
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    /* width: 100%; */
+    /* Make the image cover the entire header */
+    /* z-index: 1; */
 }
+
+.logo {
+    /* Adjust positioning if needed */
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+     width: 90px; */
+    /* max-width: 100%; */
+    /* aspect-ratio: 1; */
+    /* object-fit: contain; */
+    /* object-position: center; */
+    /* align-self: start; */
+    /* Add margin-right to create space between logo and search bar */
+    margin-right: 10px;
+}
+
 
 .header-bg {
     display: block;
@@ -76,3 +98,12 @@ body {
     padding: 20px;
 }
 
+/*.background-image {
+    position: absolute;
+    inset: 0;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    object-position: center;
+}
+*/

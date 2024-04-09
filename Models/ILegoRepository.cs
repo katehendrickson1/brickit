@@ -8,5 +8,9 @@
         IQueryable<lineItem> LineItems { get; }
         IQueryable<User> users { get; }
 
+
+        void Add<T>(T entity) where T : class;
+        void SaveChanges();
+
     }
 }

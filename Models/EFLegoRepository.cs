@@ -16,5 +16,18 @@ namespace brickit.Models
         public IQueryable<lineItem> LineItems => _context.lineItems;
         public IQueryable<User> users => _context.users;
 
+
+
+        public void Add<T>(T entity) where T : class
+        {
+            _context.Set<T>().Add(entity);
+        }
+
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
     }
 }
