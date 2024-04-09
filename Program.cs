@@ -13,7 +13,9 @@ builder.Services.AddDbContext<LegoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BrickItConnection"));
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<brickitContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<LegoDbContext>();
+
+
 
 builder.Services.AddScoped<ILegoRepository, EFLegoRepository>();
 
