@@ -95,5 +95,29 @@ namespace brickit.Controllers
 
             return RedirectToAction("ProductList"); // Assuming you have a ProductList action
         }
+
+
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            return View("SignUp", new User());
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(User response)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.User.Add(response);
+                _repo.SaveChanges();
+
+                return View("Login", response); // add record to database
+            }
+            else
+            {
+                return View(response);
+            }
+
+        }
     }
 }
