@@ -13,11 +13,26 @@ namespace brickit.Controllers
     public class HomeController : Controller
     {
         private readonly ILegoRepository _repo;
+        private readonly InferenceSession _session;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController( ILegoRepository temp)
+        public HomeController( ILegoRepository temp, ILogger<HomeController> logger)
         {
             _repo = temp;
+            _logger = logger;
+
+            try
+            {
+                _session = new InferenceSession("C:/Users/kateh/INTEXII/brickit/fraud_pred_edit.onnx");
+                _logger.LogInformation("ONNX model loaded sucessfully");
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error loading the ONNX model: {ex.Message}");
+            }
         }
+        
 
         public IActionResult Index()
         {
