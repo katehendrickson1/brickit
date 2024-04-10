@@ -23,7 +23,7 @@ namespace brickit.Controllers
             _context = context;
 
             // Load the ONNX model
-            _session = new InferenceSession("C:\\Users\\haile\\source\\repos\\brickit\\fraud_pred_edit.onnx");
+            //_session = new InferenceSession("C:\\Users\\haile\\source\\repos\\brickit\\fraud_pred_edit.onnx");
 
         }
         
