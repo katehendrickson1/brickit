@@ -3,4 +3,36 @@
 @{
 }
 
-<h1>Hi Hailey!</h1>
+<h1>Your cart</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var l in Model.Cart?.Lines ?? Enumerable.Empty<Cart.CartLine>())
+        {
+            <tr>
+                <td class="text-left">@l.Product.name</td>
+                <td class="text-center">@l.Quantity</td>
+                <td class="text-right">@l.Product.price</td>
+                <td class="text-right">@((l.Quantity * (decimal)l.Product.price).ToString("c"))</td>
+            </tr>
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">@Model.Cart?.CalcualteTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
