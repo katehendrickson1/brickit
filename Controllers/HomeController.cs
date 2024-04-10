@@ -26,6 +26,7 @@ namespace brickit.Controllers
             _session = new InferenceSession("C:\\Users\\haile\\source\\repos\\brickit\\fraud_pred_edit.onnx");
 
         }
+        
 
         public IActionResult Index()
         {
