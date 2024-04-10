@@ -1,13 +1,18 @@
 using brickit.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
+using System.Drawing;
 
 namespace brickit.Pages
 {
     public class CartModel : PageModel
     {
         private ILegoRepository _repo;
-        public CartModel(ILegoRepository repo) 
+
+        public CartModel(ILegoRepository repo, LegoDbContext context) 
         { 
             _repo = repo;
         }
@@ -49,4 +54,8 @@ namespace brickit.Pages
         //    Cart.AddItem(prod, 1);
         //}
     }
+
+    
+
+
 }
