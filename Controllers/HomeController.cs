@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
 using System.Diagnostics;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 
 namespace brickit.Controllers
 {
@@ -169,6 +171,7 @@ namespace brickit.Controllers
                 .Single(x => x.product_ID == id);
             return View("IndividualProduct", recordToSee);
         }
+
 
 
 
