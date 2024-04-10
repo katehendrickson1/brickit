@@ -2,11 +2,9 @@ html {
     font-size: 14px;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
+// <uniquifier > : Use a unique and descriptive class name
+// <weight > : Use a value from 300 to 700
+
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -23,8 +21,21 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
+.item-box {
+    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/416027b2bd405e20a5df77bf4bf140ca51889d9f971ce13d69187e5ad05a3218?')
+}
+
+
+.forum-template {
+
+}
 
 .header-search {
     /* Remove absolute positioning */
@@ -78,9 +89,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    top: 0;
 }
-
-
 
 .header-links {
     display: flex; /* Make links display in a row */
@@ -122,6 +132,25 @@ body {
     /*    background-attachment: fixed;*/
 }
 
+.blue-brick {
+    background-image: url('../lib/img/blue_lego.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.blue-border {
+    border-style: solid;
+    border-color: #0055BF;
+    border-width: 10px;
+    margin-bottom: 100px
+}
+
 .absolute-center {
     display: flex;
     align-items: center;
@@ -129,14 +158,30 @@ body {
     text-align: center;
 }
 
-.input.form-control {
-    background-color: #0055BF;
+.green-brick {
+    background-image: url('../lib/img/green_lego.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center
 }
 
 .green-border {
     border-style: solid;
     border-color: #008E3C;
-    border-width: 100px;
+    border-width: 10px;
+}
+
+.center {
+    padding: 70px 0;
+}
+
+.sticky {
+    position: sticky;
+    top: auto;
 }
 
 /*.background-image {

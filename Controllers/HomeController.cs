@@ -21,7 +21,7 @@ namespace brickit.Controllers
 
         public IActionResult Index()
         {
-        var limit = 30;
+        var limit = 2;
 
         ViewBag.Customers = _repo.Customers.ToList().Take(limit);
         var orders = _repo.Orders.ToList().Take(limit);
